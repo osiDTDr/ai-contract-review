@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+langchain
+langchain-openai
+langchain-ollama
+langgraph
+python-multipart
+PyPDF2
+python-docx
+faiss-cpu
+pydantic
+pydantic-settings
+PyYAML
+numpy
+tiktoken

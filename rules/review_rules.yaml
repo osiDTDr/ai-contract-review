@@ -1,0 +1,25 @@
+compliance_checks:
+  - name: "签署方信息"
+    keywords: ["甲方", "乙方", "签署", "盖章"]
+    required: true
+  - name: "违约责任条款"
+    keywords: ["违约", "责任", "赔偿"]
+    required: true
+  - name: "争议解决条款"
+    keywords: ["争议", "仲裁", "法院", "管辖"]
+    required: true
+
+risk_patterns:
+  - name: "单方面解约权"
+    keywords: ["单方", "解除", "终止"]
+    severity: "high"
+  - name: "过高违约金"
+    keywords: ["违约金", "赔偿金"]
+    severity: "medium"
+  - name: "不平等条款"
+    keywords: ["不得", "禁止", "限制"]
+    severity: "medium"
+
+scoring_weights:
+  compliance: 0.4
+  risks: 0.6
