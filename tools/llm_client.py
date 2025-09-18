@@ -28,9 +28,10 @@ class LLMClient:
                 model=settings.ollama_model
             )
 
-    def generate_summary(self, text: str) -> str:
+    def generate_summary(self, text: str, knowledge_context: str = "") -> str:
         """生成合同摘要"""
-        prompt = f"请对以下合同内容生成简要摘要：\n{text[:2000]}"
+        context_prompt = f"\n\n参考法律知识：\n{knowledge_context}" if knowledge_context else ""
+        prompt = f"请对以下合同内容生成简要摘要：\n{text[:2000]}{context_prompt}"
         return self.llm.invoke(prompt).content
 
     def calculate_risk_score(self, risks: list, compliance: list) -> int:

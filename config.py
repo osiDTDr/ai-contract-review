@@ -15,6 +15,11 @@ class Settings(BaseSettings):
     # 向量数据库配置
     vector_db: Literal["faiss", "milvus"] = "faiss"
     
+    # 嵌入模型配置
+    embedding_provider: Literal["openai", "ollama"] = "openai"
+    embedding_model: str = "text-embedding-ada-002"
+    ollama_embedding_model: str = "nomic-embed-text"
+    
     class Config:
         env_file = ".env"
 

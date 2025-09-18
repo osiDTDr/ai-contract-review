@@ -7,9 +7,10 @@ langgraph
 python-multipart
 PyPDF2
 python-docx
-faiss-cpu
+faiss-cpu>=1.8.0
 pydantic
 pydantic-settings
 PyYAML
 numpy
 tiktoken
+langchain-community
