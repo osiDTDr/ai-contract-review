@@ -14,3 +14,4 @@ PyYAML
 numpy
 tiktoken
 langchain-community
+dashscope

@@ -1,5 +1,6 @@
 from langchain_openai import ChatOpenAI, AzureChatOpenAI
 from langchain_ollama import ChatOllama
+from langchain_community.chat_models import ChatTongyi
 from config import settings
 
 
@@ -26,6 +27,11 @@ class LLMClient:
             return ChatOllama(
                 base_url=settings.ollama_base_url,
                 model=settings.ollama_model
+            )
+        elif settings.llm_provider == "dashscope":
+            return ChatTongyi(
+                dashscope_api_key=settings.dashscope_api_key,
+                model_name=settings.dashscope_model
             )
 
     def generate_summary(self, text: str, knowledge_context: str = "") -> str:

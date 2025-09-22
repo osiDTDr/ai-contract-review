@@ -3,7 +3,7 @@ from typing import Literal
 
 class Settings(BaseSettings):
     # LLM 配置
-    llm_provider: Literal["openai", "azure", "ollama"] = "openai"
+    llm_provider: Literal["openai", "azure", "ollama", "dashscope"] = "openai"
     openai_api_key: str = ""
     openai_base_url: str = "https://api.openai.com/v1"
     azure_endpoint: str = ""
@@ -12,11 +12,15 @@ class Settings(BaseSettings):
     ollama_base_url: str = "http://localhost:11434"
     ollama_model: str = "llama2"
     
+    # 阿里云DashScope配置
+    dashscope_api_key: str = ""
+    dashscope_model: str = "qwen-turbo"
+    
     # 向量数据库配置
     vector_db: Literal["faiss", "milvus"] = "faiss"
     
     # 嵌入模型配置
-    embedding_provider: Literal["openai", "ollama"] = "openai"
+    embedding_provider: Literal["openai", "ollama", "dashscope"] = "openai"
     embedding_model: str = "text-embedding-ada-002"
     ollama_embedding_model: str = "nomic-embed-text"
     

@@ -3,6 +3,7 @@ import numpy as np
 from typing import List, Dict
 from langchain_openai import OpenAIEmbeddings
 from langchain_ollama import OllamaEmbeddings
+from langchain_community.embeddings import DashScopeEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 import pickle
 import os
@@ -30,6 +31,11 @@ class VectorStore:
             return OllamaEmbeddings(
                 model=settings.ollama_embedding_model,
                 base_url=settings.ollama_base_url
+            )
+        elif settings.embedding_provider == "dashscope":
+            return DashScopeEmbeddings(
+                dashscope_api_key=settings.dashscope_api_key,
+                model=settings.embedding_model
             )
         else:
             raise ValueError(f"不支持的嵌入模型提供商: {settings.embedding_provider}")
